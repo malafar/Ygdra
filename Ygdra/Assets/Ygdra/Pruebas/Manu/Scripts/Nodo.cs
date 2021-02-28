@@ -5,33 +5,44 @@ using UnityEngine;
 public class Nodo {
     private Nodo _hi;
     private Nodo _hd;
+    private Nodo _padre;
     private int _id;
-    private List<int> _nodosHijos;
-    private string _texto;
+    private List<int> _descendencia;
+    private List<string> _texto;
     private Sprite _ilustracion;
 
     public Nodo() {
         _hi = null;
         _hd = null;
         _id = 0;
-        _texto = "";
+        _texto = new List<string>();
         _ilustracion = null;
     }
 
-    public void addHi() {
+    public void addHi(Nodo padre) {
         _hi = new Nodo();
+        _hi.setPadre(padre);
     }
 
     public Nodo getHi() {
         return _hi;
     }
 
-    public void addHd() {
+    public void addHd(Nodo padre) {
         _hd = new Nodo();
+        _hd.setPadre(padre);
     }
 
     public Nodo getHd() {
         return _hd;
+    }
+
+    public Nodo getPadre() {
+        return _padre;
+    }
+
+    public void setPadre(Nodo padre) {
+        _padre = padre;
     }
 
     public int getID() {
@@ -42,16 +53,31 @@ public class Nodo {
         _id = idAnterior + 1;
     }
 
-    public void addHijoToList(int indexHijo) {
-        _nodosHijos.Add(indexHijo);
+    public void addDescendencia(int indexHijo) {
+        _descendencia.Add(indexHijo);
+
+        Nodo recorrer = getPadre();
+
+        while (recorrer != null) {
+            recorrer.addDescendencia(indexHijo);
+            recorrer = recorrer.getPadre();
+        }
     }
 
     public bool hijoEnRama(int indexHijo) {
-        return _nodosHijos.Contains(indexHijo);
+        return _descendencia.Contains(indexHijo);
+    }
+
+    public List<string> getTexto() {
+        return _texto;
     }
 
     public void setTexto(string cadena) {
-        _texto = cadena;
+        string[] lineas = cadena.Split('\n');
+
+        for (int i = 0; i < lineas.Length; i++) {
+            _texto.Add(lineas[i]);
+        }
     }
 
     public void setIlustracion(Sprite imagen) {

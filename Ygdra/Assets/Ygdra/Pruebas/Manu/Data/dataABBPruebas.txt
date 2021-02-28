@@ -1,0 +1,6 @@
+0;1;"Texto cero";"Ruta imagen cero"
+1;2;"Texto uno";"Ruta imagen uno"
+2;1;"Texto dos";"Ruta imagen dos"
+3;1;"Texto tres";"Ruta imagen tres"
+4;0;"Texto cuatro";"Ruta imagen cuatro"
+5;0;"Texto cinco";"Ruta imagen cinco"
