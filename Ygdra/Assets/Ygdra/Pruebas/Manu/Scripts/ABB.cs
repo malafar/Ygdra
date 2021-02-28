@@ -26,8 +26,13 @@ public class ABB {
             while (data != null) {
                 splitData = data.Split(';');
 
-                insertar(int.Parse(splitData[1]) > 1, int.Parse(splitData[0]));
-                ajustarPagina(int.Parse(splitData[0]), splitData[3]);
+                if (int.Parse(splitData[1]) > 0) {
+                    insertar(int.Parse(splitData[1]) > 1, int.Parse(splitData[0]));
+                }
+                    
+                ajustarPagina(int.Parse(splitData[0]), splitData[2]);
+
+                data = sr.ReadLine();
             }
 
             sr.Close();
@@ -86,7 +91,8 @@ public class ABB {
         Nodo recorrer = _raiz;
 
         while (recorrer.getID() != indexPadre) {
-            if (recorrer.getHd() != null && recorrer.getHd().hijoEnRama(indexPadre)) {
+            if (recorrer.getHd() != null && 
+                (recorrer.getHd().getID() == indexPadre || recorrer.getHd().hijoEnRama(indexPadre))) {
                 recorrer = recorrer.getHd();
             } else {
                 recorrer = recorrer.getHi();

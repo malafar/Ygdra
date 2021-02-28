@@ -14,8 +14,8 @@ public class ABB_Generator : MonoBehaviour {
 
     private void muestraInfoABB() {
         Nodo recorrer = _abb.getRaiz();
-
-        //while (recorrer != null) {
+        List<int> visitados = new List<int>();
+        while (recorrer != null) {
             string info = "Hola soy el nodo " + recorrer.getID() + ".\n";
 
             if (recorrer.getPadre() == null) {
@@ -32,12 +32,36 @@ public class ABB_Generator : MonoBehaviour {
                 info += ("Tengo un hijo, " + recorrer.getHi().getID() + ".\n");
             }
 
-            Console.WriteLine(info);
-            
-            Console.WriteLine("Tengo que decir:\n");
+            Debug.Log(info);
+
+            Debug.Log("Tengo que decir:\n");
             for (int i = 0; i < recorrer.getTexto().Count; i++) {
-                Console.WriteLine(recorrer.getTexto()[i]);
+                Debug.Log(recorrer.getTexto()[i]);
             }
-        //}
+
+            // Lógica de navegación entre nodos
+            // Si tengo hijo izq, paso a hijo izq
+            if (recorrer.getHi() != null) {
+                recorrer = recorrer.getHi();
+            } else {
+                // En caso contrario, veo si tengo un hermano. Si lo tengo, paso a hijo dch de mi padre.
+                if (recorrer.getPadre().getHd() != null) {
+                    recorrer = recorrer.getHd();
+                } else {
+                    Nodo anterior = new Nodo();
+                    // Si no tengo hermano, subo hasta que haya un hijo dch o llegue al primer antepasado.
+                    while (recorrer != null && ((recorrer.getHd() == null  
+                        || (recorrer.getHd() != null && recorrer.getHd() == anterior)))) {
+                        anterior = recorrer;
+                        recorrer = recorrer.getPadre();
+                    }
+
+                    if (recorrer != null) {
+                        anterior = recorrer;
+                        recorrer = recorrer.getHd();
+                    }
+                }
+            }
+        }
     }
 }

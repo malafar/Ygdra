@@ -14,7 +14,9 @@ public class Nodo {
     public Nodo() {
         _hi = null;
         _hd = null;
+        _padre = null;
         _id = 0;
+        _descendencia = new List<int>();
         _texto = new List<string>();
         _ilustracion = null;
     }
@@ -73,7 +75,7 @@ public class Nodo {
     }
 
     public void setTexto(string cadena) {
-        string[] lineas = cadena.Split('\n');
+        string[] lineas = cadena.Split('_');
 
         for (int i = 0; i < lineas.Length; i++) {
             _texto.Add(lineas[i]);
