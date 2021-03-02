@@ -9,7 +9,7 @@ public class Nodo {
     private int _id;
     private List<int> _descendencia;
     private List<string> _texto;
-    private Sprite _ilustracion;
+    private Sprite _img;
 
     public Nodo() {
         _hi = null;
@@ -18,7 +18,7 @@ public class Nodo {
         _id = 0;
         _descendencia = new List<int>();
         _texto = new List<string>();
-        _ilustracion = null;
+        _img = null;
     }
 
     public void addHi(Nodo padre) {
@@ -82,7 +82,11 @@ public class Nodo {
         }
     }
 
-    public void setIlustracion(Sprite imagen) {
-        _ilustracion = imagen;
+    public Sprite getImg() {
+        return _img;
+    }
+
+    public void setImg(Sprite imagen) {
+        _img = imagen;
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
+using UnityEditor;
 
 public class ABB {
 
@@ -30,7 +31,7 @@ public class ABB {
                     insertar(int.Parse(splitData[1]) > 1, int.Parse(splitData[0]));
                 }
                     
-                ajustarPagina(int.Parse(splitData[0]), splitData[2]);
+                ajustarPagina(int.Parse(splitData[0]), splitData[2], splitData[3]);
 
                 data = sr.ReadLine();
             }
@@ -102,13 +103,11 @@ public class ABB {
         return recorrer;
     }
 
-    public void ajustarPagina(int indexNodo, string texto, Sprite ilustracion = null) {
+    public void ajustarPagina(int indexNodo, string texto, string  pathIlustracion) {
         Nodo nodo = buscarNodo(indexNodo);
+        Sprite imagen = (Sprite)AssetDatabase.LoadAssetAtPath(pathIlustracion, typeof(Sprite));
 
         nodo.setTexto(texto);
-
-        if (ilustracion != null) {
-            nodo.setIlustracion(ilustracion);
-        }
+        nodo.setImg(imagen);
     }
 }

@@ -1,14 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using System;
+using UnityEditor;
 
 public class ABB_Generator : MonoBehaviour {
     private ABB _abb;
-    public string abbData = "Assets/Ygdra/Pruebas/Manu/Data/dataABBPruebas.txt";
+    public UnityEngine.Object abbData;
+    public SpriteRenderer pruebaImg;
 
     void Start() {
-        _abb = new ABB(abbData);
+        _abb = new ABB(AssetDatabase.GetAssetPath(abbData));
         muestraInfoABB();
     }
 
@@ -39,6 +39,7 @@ public class ABB_Generator : MonoBehaviour {
                 Debug.Log(recorrer.getTexto()[i]);
             }
 
+            pruebaImg.sprite = recorrer.getImg();
             // Lógica de navegación entre nodos
             // Si tengo hijo izq, paso a hijo izq
             if (recorrer.getHi() != null) {
