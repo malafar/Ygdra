@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Ygdra/Pruebas/Manu/Escenas/ABB.unity
+- path: Assets/Ygdra/Pruebas/Manu/Escenas/Simulador HUD.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

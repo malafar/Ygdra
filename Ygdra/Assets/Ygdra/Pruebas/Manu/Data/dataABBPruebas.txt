@@ -1,6 +1,6 @@
-0;1;"Texto cero";Assets/Ygdra/Pruebas/Manu/Images/cero.png
-1;2;"Texto uno";Assets/Ygdra/Pruebas/Manu/Images/uno.png
-2;1;"Texto dos";Assets/Ygdra/Pruebas/Manu/Images/dos.png
-3;1;"Texto tres._Soy la segunda línea del texto tres.";Assets/Ygdra/Pruebas/Manu/Images/tres.png
-4;0;"Texto cuatro";Assets/Ygdra/Pruebas/Manu/Images/cuatro.png
-5;0;"Texto cinco";Assets/Ygdra/Pruebas/Manu/Images/cinco.png
+0;1;Texto cero;Assets/Ygdra/Pruebas/Manu/Images/cero.png
+1;2;Texto uno;Assets/Ygdra/Pruebas/Manu/Images/uno.png
+2;1;Texto dos;Assets/Ygdra/Pruebas/Manu/Images/dos.png
+3;1;Texto tres._Soy la segunda línea del texto tres.;Assets/Ygdra/Pruebas/Manu/Images/tres.png
+4;0;Texto cuatro;Assets/Ygdra/Pruebas/Manu/Images/cuatro.png
+5;0;Texto cinco;Assets/Ygdra/Pruebas/Manu/Images/cinco.png

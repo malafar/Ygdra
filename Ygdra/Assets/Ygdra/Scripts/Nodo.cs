@@ -89,4 +89,20 @@ public class Nodo {
     public void setImg(Sprite imagen) {
         _img = imagen;
     }
+
+    public bool dosHijos() {
+        return _hd != null;
+    }
+
+    public bool ultimoTexto(int indexTexto) {
+        return indexTexto == (_texto.Count - 1);
+    }
+
+    public string nextText(int currentIndexText) {
+        return _texto[currentIndexText + 1];
+    }
+
+    public bool nodoFinal() {
+        return (_hi == null && _hd == null);
+    }
 }
