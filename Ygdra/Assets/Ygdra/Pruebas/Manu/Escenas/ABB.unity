@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 116065527}
   m_Layer: 0
   m_Name: Imagen_Nodo
-  m_TagString: Untagged
+  m_TagString: Ilustracion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -300,28 +300,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 491042407}
-  - component: {fileID: 491042406}
+  - component: {fileID: 491042408}
   m_Layer: 0
-  m_Name: ABB
+  m_Name: TaleManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &491042406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 491042405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0c5ee4fbbaf239419824877bf5d8fe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abbData: {fileID: 4900000, guid: 894901ff49ab1af46b37928825ada804, type: 3}
-  pruebaImg: {fileID: 116065527}
 --- !u!4 &491042407
 Transform:
   m_ObjectHideFlags: 0
@@ -336,6 +322,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &491042408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491042405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98d5d3cbc636fbd4b8e0a737993ec470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abbData: {fileID: 4900000, guid: 894901ff49ab1af46b37928825ada804, type: 3}
+  _currentImg: {fileID: 116065527}
+  _currentText: {fileID: 816555192}
 --- !u!1 &816555190
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +350,7 @@ GameObject:
   - component: {fileID: 816555192}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: Texto
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -9,7 +9,7 @@ public class ABB_Generator : MonoBehaviour {
 
     void Start() {
         _abb = new ABB(AssetDatabase.GetAssetPath(abbData));
-        muestraInfoABB();
+        //muestraInfoABB();
     }
 
     private void muestraInfoABB() {
