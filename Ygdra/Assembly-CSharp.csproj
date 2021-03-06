@@ -65,9 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Ygdra\Pruebas\Manu\Scripts\ABB_Generator.cs" />
-    <Compile Include="Assets\Ygdra\Pruebas\Manu\Scripts\TaleManager.cs" />
     <Compile Include="Assets\Ygdra\Scripts\ABB.cs" />
     <Compile Include="Assets\Ygdra\Scripts\Nodo.cs" />
+    <Compile Include="Assets\Ygdra\Scripts\TaleManager.cs" />
     <None Include="Assets\Ygdra\Pruebas\Manu\Data\dataABBPruebas.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Antonio/Documents/Unity/Ygdra/Ygdra/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

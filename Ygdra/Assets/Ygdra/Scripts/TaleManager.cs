@@ -30,17 +30,19 @@ public class TaleManager : MonoBehaviour {
     void Update() {
         if (Input.GetKeyUp(_teclasValidas[0]) || Input.GetKeyUp(_teclasValidas[1]) 
             || Input.GetKeyUp(_teclasValidas[2])) {
-            next();
+            if (!_currentNodo.nodoFinal()) {
+                next();
+            }
         }
     }
 
     private void next() {
         if (Input.GetKeyUp(_teclasValidas[0])) {
-            if (_currentNodo.ultimoTexto(_indexText) && !_currentNodo.dosHijos()) {
-                toNextNodo(_currentNodo.getHi());
-            } else {
+            if (!_currentNodo.ultimoTexto(_indexText)) {
                 _currentText.text = _currentNodo.nextText(_indexText);
                 _indexText++;
+            } else if (_currentNodo.ultimoTexto(_indexText) && !_currentNodo.dosHijos()) {
+                toNextNodo(_currentNodo.getHi());
             }
         } else {
             if (_currentNodo.ultimoTexto(_indexText) && _currentNodo.dosHijos()) {

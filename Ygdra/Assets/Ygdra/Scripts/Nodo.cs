@@ -101,4 +101,8 @@ public class Nodo {
     public string nextText(int currentIndexText) {
         return _texto[currentIndexText + 1];
     }
+
+    public bool nodoFinal() {
+        return (_hi == null && _hd == null);
+    }
 }
