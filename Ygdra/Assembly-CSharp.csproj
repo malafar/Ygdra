@@ -67,6 +67,7 @@
     <Compile Include="Assets\Ygdra\Pruebas\Manu\Scripts\ABB_Generator.cs" />
     <Compile Include="Assets\Ygdra\Scripts\ABB.cs" />
     <Compile Include="Assets\Ygdra\Scripts\Nodo.cs" />
+    <Compile Include="Assets\Ygdra\Scripts\State.cs" />
     <Compile Include="Assets\Ygdra\Scripts\TaleManager.cs" />
     <None Include="Assets\Ygdra\Pruebas\Manu\Data\dataABBPruebas.txt" />
     <Reference Include="Unity.Timeline.Editor">
