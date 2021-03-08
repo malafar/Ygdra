@@ -65,6 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Ygdra\Pruebas\Manu\Scripts\ABB_Generator.cs" />
+    <Compile Include="Assets\Ygdra\Pruebas\Manu\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Ygdra\Pruebas\Manu\Scripts\SavedData.cs" />
+    <Compile Include="Assets\Ygdra\Pruebas\Manu\Scripts\SaveLoadManager.cs" />
     <Compile Include="Assets\Ygdra\Scripts\ABB.cs" />
     <Compile Include="Assets\Ygdra\Scripts\Nodo.cs" />
     <Compile Include="Assets\Ygdra\Scripts\State.cs" />
