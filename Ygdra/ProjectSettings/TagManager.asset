@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ilustracion
   - Texto
+  - SaveLoadManager
   layers:
   - Default
   - TransparentFX

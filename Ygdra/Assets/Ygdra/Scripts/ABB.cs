@@ -47,7 +47,9 @@ public class ABB {
             Debug.Log("Árbol cargado correctamente.");
         }
 
-        cargarDatos();
+        if (GameManager.getSaveLoadManagaer().getAbbData(_nombre) != null) {
+            cargarDatos();
+        }
     }
 
     public Nodo getRaiz() {
@@ -131,7 +133,7 @@ public class ABB {
                     }
                 }
 
-                nextNodo(recorrer);
+                recorrer = nextNodo(recorrer);
             }
         }
     }
@@ -140,20 +142,18 @@ public class ABB {
         List<Tuple<int, State>> datos = new List<Tuple<int, State>>();
         Tuple<int, State> info;
 
-        if (datos.Count > 0) {
-            Nodo recorrer = _raiz;
-            while (recorrer != null) {
-                info = new Tuple<int, State>(recorrer.getID(), recorrer.getState());
-                datos.Add(info);
+        Nodo recorrer = _raiz;
+        while (recorrer != null) {
+            info = new Tuple<int, State>(recorrer.getID(), recorrer.getState());
+            datos.Add(info);
 
-                nextNodo(recorrer);
-            }
+            recorrer = nextNodo(recorrer);
         }
 
         GameManager.getSaveLoadManagaer().guardar(_nombre, datos);
     }
 
-    private void nextNodo(Nodo current) {
+    private Nodo nextNodo(Nodo current) {
         // Lógica de navegación entre nodos
         // Si tengo hijo izq, paso a hijo izq
         if (current.getHi() != null) {
@@ -177,5 +177,7 @@ public class ABB {
                 }
             }
         }
+
+        return current;
     }
 }

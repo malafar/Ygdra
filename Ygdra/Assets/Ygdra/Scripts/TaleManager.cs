@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TaleManager : MonoBehaviour {
 
-    private ABB _abb;
+    public ABB _abb;
     public UnityEngine.Object abbData;
     private SpriteRenderer _currentImg;
     private Text _currentText;
@@ -60,7 +60,7 @@ public class TaleManager : MonoBehaviour {
     }
 
     private void toNextNodo(Nodo next) {
-        updateStateNodo(_currentNodo);
+        updateStateNodo(_currentNodo, next);
         _currentNodo = next;
         _currentImg.sprite = _currentNodo.getImg();
         _indexText = 0;

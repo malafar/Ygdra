@@ -13,10 +13,11 @@ public class SaveLoadManager : MonoBehaviour {
     private FileStream _saveFile;
 
     void Awake() {
-        _saveFilePath = Application.persistentDataPath + "save.dat";
+        _saveFilePath = Application.persistentDataPath + "/save.dat";
     }
 
     void Start() {
+        _dataABB = new Dictionary<string, List<Tuple<int, State>>>();
         cargar();    
     }
 
