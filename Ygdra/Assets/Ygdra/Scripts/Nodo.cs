@@ -10,6 +10,7 @@ public class Nodo {
     private List<int> _descendencia;
     private List<string> _texto;
     private Sprite _img;
+    private State _state;
 
     public Nodo() {
         _hi = null;
@@ -19,6 +20,7 @@ public class Nodo {
         _descendencia = new List<int>();
         _texto = new List<string>();
         _img = null;
+        _state = State.NO_VISITADO;
     }
 
     public void addHi(Nodo padre) {
@@ -104,5 +106,13 @@ public class Nodo {
 
     public bool nodoFinal() {
         return (_hi == null && _hd == null);
+    }
+
+    public State getState() {
+        return _state;
+    }
+
+    public void setState(State nuevoState) {
+        _state = nuevoState;
     }
 }

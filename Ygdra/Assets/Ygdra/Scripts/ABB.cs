@@ -9,6 +9,7 @@ public class ABB {
 
     private Nodo _raiz;
     private int _lastIndex = 0;
+    private string _nombre;
 
     public ABB() {
         _raiz = null;
@@ -22,6 +23,9 @@ public class ABB {
 
         try {
             StreamReader sr = new StreamReader(rutaFichero);
+            data = sr.ReadLine();
+            _nombre = data;
+
             data = sr.ReadLine();
 
             while (data != null) {
@@ -41,6 +45,10 @@ public class ABB {
             Debug.LogError("Excepción: " + e.Message);
         } finally {
             Debug.Log("Árbol cargado correctamente.");
+        }
+
+        if (GameManager.getSaveLoadManagaer().getAbbData(_nombre) != null) {
+            cargarDatos();
         }
     }
 
@@ -109,5 +117,67 @@ public class ABB {
 
         nodo.setTexto(texto);
         nodo.setImg(imagen);
+    }
+
+    private void cargarDatos() {
+        List<Tuple<int, State>> datos = GameManager.getSaveLoadManagaer().getAbbData(_nombre);
+
+        if (datos.Count > 0) {
+            Nodo recorrer = _raiz;
+            while (recorrer != null) {
+                for(int i = 0; i < datos.Count - 1; i++) {
+                    if (recorrer.getID() == datos[i].Item1) {
+                        recorrer.setState(datos[i].Item2);
+                        i = datos.Count - 1;
+                        datos.Remove(datos[i]);
+                    }
+                }
+
+                recorrer = nextNodo(recorrer);
+            }
+        }
+    }
+
+    public void guardarDatos() {
+        List<Tuple<int, State>> datos = new List<Tuple<int, State>>();
+        Tuple<int, State> info;
+
+        Nodo recorrer = _raiz;
+        while (recorrer != null) {
+            info = new Tuple<int, State>(recorrer.getID(), recorrer.getState());
+            datos.Add(info);
+
+            recorrer = nextNodo(recorrer);
+        }
+
+        GameManager.getSaveLoadManagaer().guardar(_nombre, datos);
+    }
+
+    private Nodo nextNodo(Nodo current) {
+        // Lógica de navegación entre nodos
+        // Si tengo hijo izq, paso a hijo izq
+        if (current.getHi() != null) {
+            current = current.getHi();
+        } else {
+            // En caso contrario, veo si tengo un hermano. Si lo tengo, paso a hijo dch de mi padre.
+            if (current.getPadre().getHd() != null) {
+                current = current.getHd();
+            } else {
+                Nodo anterior = new Nodo();
+                // Si no tengo hermano, subo hasta que haya un hijo dch o llegue al primer antepasado.
+                while (current != null && ((current.getHd() == null
+                    || (current.getHd() != null && current.getHd() == anterior)))) {
+                    anterior = current;
+                    current = current.getPadre();
+                }
+
+                if (current != null) {
+                    anterior = current;
+                    current = current.getHd();
+                }
+            }
+        }
+
+        return current;
     }
 }
