@@ -7,7 +7,7 @@ public class TaleManager : MonoBehaviour {
 
     public ABB _abb;
     public UnityEngine.Object abbData;
-    private SpriteRenderer _currentImg;
+    private Image _currentImg;
     private Text _currentText;
     private int _indexText;
     private Nodo _currentNodo;
@@ -16,7 +16,7 @@ public class TaleManager : MonoBehaviour {
     void Start() {
         _abb = new ABB(AssetDatabase.GetAssetPath(abbData));
         _currentNodo = _abb.getRaiz();
-        _currentImg = GameObject.FindGameObjectWithTag("Ilustracion").GetComponent<SpriteRenderer>();
+        _currentImg = GameObject.FindGameObjectWithTag("Ilustracion").GetComponent<Image>();
         _currentImg.sprite = _currentNodo.getImg(); 
         _currentText = GameObject.FindGameObjectWithTag("Texto").GetComponent<Text>();
         _currentText.text = _currentNodo.getTexto()[0];
