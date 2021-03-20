@@ -332,6 +332,7 @@
     <Compile Include="Assets\DOTween\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
     <Compile Include="Assets\DOTween\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
     <Compile Include="Assets\Ygdra\Pruebas\Manu\Scripts\ABB_Generator.cs" />
+    <Compile Include="Assets\Ygdra\Pruebas\Manu\Scripts\AdsManager.cs" />
     <Compile Include="Assets\Ygdra\Pruebas\Manu\Scripts\saveTester.cs" />
     <Compile Include="Assets\Ygdra\Scripts\ABB.cs" />
     <Compile Include="Assets\Ygdra\Scripts\GameManager.cs" />

@@ -16,7 +16,7 @@ namespace GoogleMobileAds.Editor
         private const string MobileAdsSettingsResDir = "Assets/GoogleMobileAds/Resources";
 
         private const string MobileAdsSettingsFile =
-            "Assets/GoogleMobileAds/Resources/GoogleMobileAdsSettings.asset";
+            "Assets/Google Ads/GoogleMobileAds/Resources/GoogleMobileAdsSettings.asset";
 
         private static GoogleMobileAdsSettings instance;
 
