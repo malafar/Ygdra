@@ -6,6 +6,7 @@ using GoogleMobileAds.Api;
 public static class GameManager {
     private static SaveLoadManager _saveLoadManager = null;
     private static bool _adsInicializados = false;
+    private static string _nombreABB = null;
 
     public static SaveLoadManager getSaveLoadManagaer() {
         if (_saveLoadManager == null) {
@@ -19,5 +20,13 @@ public static class GameManager {
             _adsInicializados = !_adsInicializados;
             MobileAds.Initialize(initStatus => { });
         }
+    }
+
+    public static string getNombreABB() {
+        return _nombreABB;
+    }
+
+    public static void setNombreABB(string nombre) {
+        _nombreABB = nombre;
     }
 }

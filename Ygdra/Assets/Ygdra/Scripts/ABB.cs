@@ -114,7 +114,8 @@ public class ABB {
 
     public void ajustarPagina(int indexNodo, string texto, string  pathIlustracion) {
         Nodo nodo = buscarNodo(indexNodo);
-        Sprite imagen = (Sprite)AssetDatabase.LoadAssetAtPath(pathIlustracion, typeof(Sprite));
+        //Sprite imagen = (Sprite)AssetDatabase.LoadAssetAtPath(pathIlustracion, typeof(Sprite));
+        Sprite imagen = Resources.Load<Sprite>(pathIlustracion);
 
         nodo.setTexto(texto);
         nodo.setImg(imagen);

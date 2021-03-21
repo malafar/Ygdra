@@ -351,6 +351,7 @@
     <None Include="Assets\DoozyUI\Doozy\Examples\Shaders\DRimLightSolid.shader" />
     <None Include="Assets\DoozyUI\Doozy\Examples\Fonts\Anton\OFL.txt" />
     <None Include="Assets\DoozyUI\Doozy\Examples\Fonts\Emilys_Candy\OFL.txt" />
+    <None Include="Assets\Resources\Data\dataABBPruebas.txt" />
     <None Include="Assets\DoozyUI\Doozy\Examples\Fonts\Bubblegum_Sans\OFL.txt" />
     <None Include="Assets\DoozyUI\Doozy\Examples\Fonts\Codystar\OFL.txt" />
     <None Include="Assets\DoozyUI\Doozy\Examples\Fonts\Luckiest_Guy\LICENSE.txt" />
