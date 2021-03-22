@@ -14,8 +14,8 @@ public class TaleManager : MonoBehaviour {
     private List<KeyCode> _teclasValidas;
 
     void Start() {
-        _abb = new ABB("Assets/Resources/Data/dataABBPruebas.txt");
-        // TODO: cambiar a esto cuando sea versión desde UI _abb = new ABB("Assets/Resources/Data/" + GameManager.getNombreABB() + ".txt");
+        _abb = new ABB("dataABBPruebas");
+        // TODO: cambiar a esto cuando sea versión desde UI _abb = new ABB(GameManager.getNombreABB());
         _currentNodo = _abb.getRaiz();
         _currentImg = GameObject.FindGameObjectWithTag("Ilustracion").GetComponent<Image>();
         _currentImg.sprite = _currentNodo.getImg(); 

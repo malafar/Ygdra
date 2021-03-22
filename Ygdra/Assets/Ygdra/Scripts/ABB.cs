@@ -16,32 +16,29 @@ public class ABB {
         _raiz = null;
     }
 
-    public ABB(string rutaFichero) {
-        string data;
-        string[] splitData;
-
-        _raiz = null;
-
+    public ABB(string nombreAbb) {
         try {
-            StreamReader sr = new StreamReader(rutaFichero);
-            data = sr.ReadLine();
-            _nombre = data;
+            string path = "Data/" + nombreAbb;
+            TextAsset dataText = (TextAsset)Resources.Load(path, typeof(TextAsset));
+            string data = dataText.text;
+            string[] splitData = data.Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+            string[] lineData;
 
-            data = sr.ReadLine();
+            _raiz = null;
 
-            while (data != null) {
-                splitData = data.Split(';');
+            for (int i = 0; i < splitData.Length; i++) {
+                if (i == 0) {
+                    _nombre = splitData[i];
+                } else {
+                    lineData = splitData[i].Split(';');
 
-                if (int.Parse(splitData[1]) > 0) {
-                    insertar(int.Parse(splitData[1]) > 1, int.Parse(splitData[0]));
+                    if (int.Parse(lineData[1]) > 0) {
+                        insertar(int.Parse(lineData[1]) > 1, int.Parse(lineData[0]));
+                    }
+
+                    ajustarPagina(int.Parse(lineData[0]), lineData[2], lineData[3]);
                 }
-                    
-                ajustarPagina(int.Parse(splitData[0]), splitData[2], splitData[3]);
-
-                data = sr.ReadLine();
             }
-
-            sr.Close();
         } catch (Exception e) {
             Debug.LogError("Excepción: " + e.Message);
         } finally {
@@ -115,7 +112,7 @@ public class ABB {
     public void ajustarPagina(int indexNodo, string texto, string  pathIlustracion) {
         Nodo nodo = buscarNodo(indexNodo);
         //Sprite imagen = (Sprite)AssetDatabase.LoadAssetAtPath(pathIlustracion, typeof(Sprite));
-        Sprite imagen = Resources.Load<Sprite>(pathIlustracion);
+        Sprite imagen = (Sprite)Resources.Load(pathIlustracion, typeof(Sprite));
 
         nodo.setTexto(texto);
         nodo.setImg(imagen);
