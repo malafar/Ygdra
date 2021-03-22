@@ -9,7 +9,7 @@ using System.Collections.Generic;
 public class AdsManager : MonoBehaviour {
 
     private RewardBasedVideoAd _reward;
-    [SerializeField] private string rewardID = "ca-app-pub-3940256099942544/5224354917";
+    private string rewardID = "ca-app-pub-3940256099942544/5224354917";
     // TODO: cuando se vaya a publicar, hay que poner el ID bueno, éste es de prueba
 
     void Awake() {

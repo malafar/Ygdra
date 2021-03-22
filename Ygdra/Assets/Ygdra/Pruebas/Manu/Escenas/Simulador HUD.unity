@@ -206,7 +206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff6d56cff77b14b4d936a6bc36260fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rewardID: 
 --- !u!1 &242336247
 GameObject:
   m_ObjectHideFlags: 0
