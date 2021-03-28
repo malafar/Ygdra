@@ -8,7 +8,7 @@ public class ABB_Generator : MonoBehaviour {
     public SpriteRenderer pruebaImg;
 
     void Start() {
-        _abb = new ABB(AssetDatabase.GetAssetPath(abbData));
+        //_abb = new ABB(AssetDatabase.GetAssetPath(abbData));
         //muestraInfoABB();
     }
 
