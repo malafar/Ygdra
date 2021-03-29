@@ -124,11 +124,9 @@ public class ABB {
         if (datos.Count > 0) {
             Nodo recorrer = _raiz;
             while (recorrer != null) {
-                for(int i = 0; i < datos.Count - 1; i++) {
+                for(int i = 0; i < datos.Count; i++) {
                     if (recorrer.getID() == datos[i].Item1) {
                         recorrer.setState(datos[i].Item2);
-                        i = datos.Count - 1;
-                        datos.Remove(datos[i]);
                     }
                 }
 

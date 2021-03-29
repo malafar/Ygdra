@@ -7,6 +7,6 @@ public class saveTester : MonoBehaviour
     public TaleManager tm;
 
     public void guardar() {
-        tm._abb.guardarDatos();
+        tm.getABB().guardarDatos();
     }
 }
