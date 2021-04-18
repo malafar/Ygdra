@@ -296,6 +296,7 @@
     <Compile Include="Assets\DoozyUI\Doozy\Examples\Scripts\UIButtonAutomatedTextValue.cs" />
     <Compile Include="Assets\DoozyUI\Doozy\Engine\UI\Input\InputData.cs" />
     <Compile Include="Assets\DoozyUI\Doozy\Examples\Scripts\ExampleShowPopup.cs" />
+    <Compile Include="Assets\Ygdra\Pruebas\Manu\Scripts\Player.cs" />
     <Compile Include="Assets\DoozyUI\Doozy\Engine\Soundy\ScriptableObjects\SoundDatabase.cs" />
     <Compile Include="Assets\DoozyUI\Doozy\Engine\UI\Base\NamesDatabase.cs" />
     <Compile Include="Assets\DoozyUI\Doozy\Engine\Themes\Targets\ColorTargetTextMeshPro.cs" />
@@ -333,6 +334,7 @@
     <Compile Include="Assets\DoozyUI\Doozy\Engine\Progress\ProgressTargets\ProgressTargetImage.cs" />
     <Compile Include="Assets\DoozyUI\Doozy\Engine\Progress\Enums\ProgressorVariable.cs" />
     <Compile Include="Assets\DoozyUI\Doozy\Engine\Themes\Targets\SpriteTargetSpriteRenderer.cs" />
+    <Compile Include="Assets\Ygdra\Pruebas\Manu\Scripts\HUDManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\DoozyUI\Doozy\Examples\Fonts\Codystar\OFL.txt" />
