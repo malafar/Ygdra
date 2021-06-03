@@ -78,8 +78,13 @@ public class AdsManager : MonoBehaviour {
     }
 
     public void HandleRecompensar(object sender, Reward args) {
-        // Cargamos la recompensa al jugador/a
-        // TODO: pendiente de implementación de contador de hojas
+        /*
+         Como la recompensa es incrementar el número de hojas
+        actual en uno, no hace falta cargar una cantidad,
+        directamente incrementamos el número con la funcionalidad
+        creada.
+         */
+        GameManager.updateCntHojas(true);
 
         /* Código ejemplo
         string type = args.Type;

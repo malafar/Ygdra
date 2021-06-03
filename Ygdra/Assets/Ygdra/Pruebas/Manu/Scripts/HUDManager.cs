@@ -8,6 +8,10 @@ public class HUDManager : MonoBehaviour{
     public Text cntHojas;
     void Start(){
         updateCntHojas();
+
+        if (GameManager.GetHUDManager() == null) {
+            GameManager.setHUDManager(this);
+        }
     }
 
     public void updateCntHojas() {

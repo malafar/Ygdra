@@ -7,6 +7,7 @@ public static class GameManager {
     private static SaveLoadManager _saveLoadManager = null;
     private static bool _adsInicializados = false;
     private static string _nombreABB = null;
+    private static HUDManager _hudManager = null;
 
     public static SaveLoadManager getSaveLoadManagaer() {
         if (_saveLoadManager == null) {
@@ -28,5 +29,23 @@ public static class GameManager {
 
     public static void setNombreABB(string nombre) {
         _nombreABB = nombre;
+    }
+
+    public static HUDManager GetHUDManager() {
+        return _hudManager;
+    }
+
+    public static void setHUDManager(HUDManager hud) {
+        _hudManager = hud;
+    }
+
+    public static void updateCntHojas(bool positivo) {
+        if (positivo) {
+            Player.incrementCurrentHojas();
+        } else {
+            Player.decrementCurrentHojas();
+        }
+        
+        _hudManager.updateCntHojas();
     }
 }

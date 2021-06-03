@@ -38,30 +38,36 @@ public class TaleManager : MonoBehaviour {
     }
 
     public void nextFront() {
-        if (!_currentNodo.nodoFinal()) {
-            if (!_currentNodo.ultimoTexto(_indexText)) {
-                _currentText.text = _currentNodo.nextText(_indexText);
-                _indexText++;
-            } else if (_currentNodo.ultimoTexto(_indexText) && !_currentNodo.dosHijos()) {
-                toNextNodo(_currentNodo.getHi());
+        if (Player.getCurrentHojas() > 0) {
+            if (!_currentNodo.nodoFinal()) {
+                if (!_currentNodo.ultimoTexto(_indexText)) {
+                    _currentText.text = _currentNodo.nextText(_indexText);
+                    _indexText++;
+                } else if (_currentNodo.ultimoTexto(_indexText) && !_currentNodo.dosHijos()) {
+                    toNextNodo(_currentNodo.getHi());
+                }
+            } else {
+                updateStateNodo(_currentNodo);
             }
-        } else {
-            updateStateNodo(_currentNodo);
         }
     }
 
     public void nextLeft() {
-        if (!_currentNodo.nodoFinal()) {
-            if (_currentNodo.ultimoTexto(_indexText) && _currentNodo.dosHijos()) {
-                toNextNodo(_currentNodo.getHi());
+        if (Player.getCurrentHojas() > 0) {
+            if (!_currentNodo.nodoFinal()) {
+                if (_currentNodo.ultimoTexto(_indexText) && _currentNodo.dosHijos()) {
+                    toNextNodo(_currentNodo.getHi());
+                }
             }
         }
     }
 
     public void nextRight() {
-        if (!_currentNodo.nodoFinal()) {
-            if (_currentNodo.ultimoTexto(_indexText) && _currentNodo.dosHijos()) {
-                toNextNodo(_currentNodo.getHd());
+        if (Player.getCurrentHojas() > 0) {
+            if (!_currentNodo.nodoFinal()) {
+                if (_currentNodo.ultimoTexto(_indexText) && _currentNodo.dosHijos()) {
+                    toNextNodo(_currentNodo.getHd());
+                }
             }
         }
     }
@@ -99,6 +105,8 @@ public class TaleManager : MonoBehaviour {
         _indexText = 0;
         _currentText.text = _currentNodo.getTexto()[_indexText];
         estado_txt.text = _currentNodo.getState().ToString();
+
+        GameManager.updateCntHojas(false);
     }
 
     private void updateStateNodo(Nodo nodo, Nodo next = null) {
