@@ -252,9 +252,11 @@
     <Compile Include="Assets\DoozyUI\Doozy\Engine\Progress\ProgressTargets\ProgressTargetTextMeshPro.cs" />
     <Compile Include="Assets\DoozyUI\Doozy\Engine\UI\Animation\UIAnimations.cs" />
     <Compile Include="Assets\DoozyUI\Doozy\Engine\Themes\Targets\SpriteTargetImage.cs" />
+    <Compile Include="Assets\Ygdra\Scripts\LoadType.cs" />
     <Compile Include="Assets\DOTween\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\DoozyUI\Doozy\Engine\Scripts\GameEventManager.cs" />
     <Compile Include="Assets\DoozyUI\Doozy\Integrations\Playmaker\Actions\DoozyUI\UnloadScene.cs" />
+    <Compile Include="Assets\Ygdra\Scripts\HUDManager.cs" />
     <Compile Include="Assets\DoozyUI\Doozy\Engine\UI\Enums\TargetOrientation.cs" />
     <Compile Include="Assets\DoozyUI\Doozy\Engine\UI\Input\BackButton.cs" />
     <Compile Include="Assets\DoozyUI\Doozy\Engine\Progress\Enums\TargetProgress.cs" />
@@ -296,7 +298,7 @@
     <Compile Include="Assets\DoozyUI\Doozy\Examples\Scripts\UIButtonAutomatedTextValue.cs" />
     <Compile Include="Assets\DoozyUI\Doozy\Engine\UI\Input\InputData.cs" />
     <Compile Include="Assets\DoozyUI\Doozy\Examples\Scripts\ExampleShowPopup.cs" />
-    <Compile Include="Assets\Ygdra\Pruebas\Manu\Scripts\Player.cs" />
+    <Compile Include="Assets\Ygdra\Scripts\Player.cs" />
     <Compile Include="Assets\DoozyUI\Doozy\Engine\Soundy\ScriptableObjects\SoundDatabase.cs" />
     <Compile Include="Assets\DoozyUI\Doozy\Engine\UI\Base\NamesDatabase.cs" />
     <Compile Include="Assets\DoozyUI\Doozy\Engine\Themes\Targets\ColorTargetTextMeshPro.cs" />
@@ -334,7 +336,6 @@
     <Compile Include="Assets\DoozyUI\Doozy\Engine\Progress\ProgressTargets\ProgressTargetImage.cs" />
     <Compile Include="Assets\DoozyUI\Doozy\Engine\Progress\Enums\ProgressorVariable.cs" />
     <Compile Include="Assets\DoozyUI\Doozy\Engine\Themes\Targets\SpriteTargetSpriteRenderer.cs" />
-    <Compile Include="Assets\Ygdra\Pruebas\Manu\Scripts\HUDManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\DoozyUI\Doozy\Examples\Fonts\Codystar\OFL.txt" />

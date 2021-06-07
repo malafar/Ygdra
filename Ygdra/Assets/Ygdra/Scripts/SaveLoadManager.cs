@@ -8,6 +8,9 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class SaveLoadManager : MonoBehaviour {
 
     private Dictionary<string, List< Tuple<int, State> > > _dataABB;
+    private int _currentHojas;
+    private int _maxHojas;
+
     private string _saveFilePath;
     private BinaryFormatter _bf;
     private FileStream _saveFile;
@@ -18,10 +21,10 @@ public class SaveLoadManager : MonoBehaviour {
 
     void Start() {
         _dataABB = new Dictionary<string, List<Tuple<int, State>>>();
-        cargar();    
+        cargar(LoadType.ALL);    
     }
 
-    public void guardar(string nombreABB = null, List< Tuple <int, State> > estadosABB = null) {
+    public void guardarABB(string nombreABB = null, List< Tuple <int, State> > estadosABB = null) {
         _bf = new BinaryFormatter();
         _saveFile = File.Create(_saveFilePath);
 
@@ -30,17 +33,45 @@ public class SaveLoadManager : MonoBehaviour {
         guardarDatosAbb(nombreABB, estadosABB);
 
         _saveFile.Close();
-        cargar();
+        cargar(LoadType.ABB);
     }
 
-    public void cargar() {
+    public void guardarPlayerData() {
+        _bf = new BinaryFormatter();
+        _saveFile = File.Create(_saveFilePath);
+
+        // Guardado de datos
+        // Datos de player
+        guardarDatosPlayer();
+
+        _saveFile.Close();
+        cargar(LoadType.PLAYER);
+    }
+
+    public void cargar(LoadType tipo) {
         if (File.Exists(_saveFilePath)) {
             _bf = new BinaryFormatter();
             _saveFile = File.Open(_saveFilePath, FileMode.Open);
 
-            // Guardado de datos
-            // Datos Abb
-            cargarDatosAbb();
+            // Cargado de datos
+
+            switch (tipo) {
+                case LoadType.ABB:
+                    // Datos Abb
+                    cargarDatosAbb();
+                    break;
+
+                case LoadType.PLAYER:
+                    // Datos de jugador
+                    cargarDatosPlayer();
+                    break;
+
+                case LoadType.ALL:
+                    cargarDatosAbb();
+                    _saveFile.Position = 0;
+                    cargarDatosPlayer();
+                    break;
+            }
 
             _saveFile.Close();
         }
@@ -58,10 +89,25 @@ public class SaveLoadManager : MonoBehaviour {
         _bf.Serialize(_saveFile, savedData);
     }
 
+    private void guardarDatosPlayer() {
+        PlayerData savedData = new PlayerData();
+        
+        savedData.savePlayerData();
+
+        _bf.Serialize(_saveFile, savedData);
+    }
+
     private void cargarDatosAbb() {
         AbbData savedData = (AbbData)_bf.Deserialize(_saveFile);
 
         _dataABB = savedData.loadABB();
+    }
+
+    private void cargarDatosPlayer() {
+        PlayerData savedData = (PlayerData)_bf.Deserialize(_saveFile);
+
+        _currentHojas = savedData.loadCurrentHojas();
+        _maxHojas = savedData.loadMaxHojas();
     }
 
     public List<Tuple<int, State>> getAbbData(string nombreABB) {
@@ -70,5 +116,13 @@ public class SaveLoadManager : MonoBehaviour {
         }
 
         return new List<Tuple<int, State>>();
+    }
+
+    public int getCurrentHojas() {
+        return _currentHojas;
+    }
+
+    public int getMaxHojas() {
+        return _maxHojas;
     }
 }

@@ -28,3 +28,22 @@ class AbbData {
         return _dataABB;
     } 
 }
+
+[Serializable]
+class PlayerData {
+    private int _currentHojas;
+    private int _maxHojas;
+
+    public void savePlayerData() {
+        _currentHojas = Player.getCurrentHojas();
+        _maxHojas = Player.getMaxHojas();
+    }
+
+    public int loadCurrentHojas() {
+        return _currentHojas;
+    }
+
+    public int loadMaxHojas() {
+        return _maxHojas;
+    }
+}

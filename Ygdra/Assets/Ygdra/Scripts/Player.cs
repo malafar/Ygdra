@@ -15,14 +15,17 @@ public static class Player {
 
     public static void incrementCurrentHojas() {
         _currentHojas++;
+        GameManager.getSaveLoadManagaer().guardarPlayerData();
     }
 
     public static void decrementCurrentHojas() {
         _currentHojas--;
+        GameManager.getSaveLoadManagaer().guardarPlayerData();
     }
 
     public static void resetCurrentHojas() {
         _currentHojas = _maxHojas;
+        GameManager.getSaveLoadManagaer().guardarPlayerData();
     }
 
     public static int getMaxHojas() {
@@ -31,5 +34,6 @@ public static class Player {
 
     public static void incrementMaxHojas() {
         _maxHojas++;
+        GameManager.getSaveLoadManagaer().guardarPlayerData();
     }
 }

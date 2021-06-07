@@ -147,7 +147,7 @@ public class ABB {
             recorrer = nextNodo(recorrer);
         }
 
-        GameManager.getSaveLoadManagaer().guardar(_nombre, datos);
+        GameManager.getSaveLoadManagaer().guardarABB(_nombre, datos);
     }
 
     private Nodo nextNodo(Nodo current) {
