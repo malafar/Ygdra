@@ -9,7 +9,7 @@ public static class GameManager {
     private static string _nombreABB = null;
     private static HUDManager _hudManager = null;
 
-    public static SaveLoadManager getSaveLoadManagaer() {
+    public static SaveLoadManager getSaveLoadManager() {
         if (_saveLoadManager == null) {
             _saveLoadManager = GameObject.FindGameObjectWithTag("SaveLoadManager").GetComponent<SaveLoadManager>();
         }

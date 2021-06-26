@@ -5,20 +5,17 @@ using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public static class SavedData { }
+public static class SavedDataClass { }
 
 [Serializable]
-class AbbData {
+class SavedData {
+
+    // ABB
     private Dictionary<string, List< Tuple<int, State> > > _dataABB;
 
-    public void saveABB(string nombreABB, List< Tuple<int, State> > estadosABB) {
-        // Lógica: si existe se actualiza, si no , se crea al ser la primera vez que se guarda
-        if (_dataABB.ContainsKey(nombreABB)) {
-            _dataABB[nombreABB] = estadosABB;
-        } else {
-            _dataABB.Add(nombreABB, estadosABB);
-        }
-    }
+    // Datos contador hojas
+    private int _currentHojas;
+    private int _maxHojas;
 
     public void saveABB(Dictionary<string, List<Tuple<int, State>>> datos) {
         _dataABB = datos;
@@ -26,13 +23,7 @@ class AbbData {
 
     public Dictionary<string, List<Tuple<int, State>>> loadABB() {
         return _dataABB;
-    } 
-}
-
-[Serializable]
-class PlayerData {
-    private int _currentHojas;
-    private int _maxHojas;
+    }
 
     public void savePlayerData() {
         _currentHojas = Player.getCurrentHojas();

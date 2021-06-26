@@ -45,7 +45,7 @@ public class ABB {
             Debug.Log("Árbol cargado correctamente.");
         }
 
-        if (GameManager.getSaveLoadManagaer().getAbbData(_nombre) != null) {
+        if (GameManager.getSaveLoadManager().getAbbData(_nombre) != null) {
             cargarDatos();
         }
     }
@@ -119,7 +119,7 @@ public class ABB {
     }
 
     private void cargarDatos() {
-        List<Tuple<int, State>> datos = GameManager.getSaveLoadManagaer().getAbbData(_nombre);
+        List<Tuple<int, State>> datos = GameManager.getSaveLoadManager().getAbbData(_nombre);
 
         if (datos.Count > 0) {
             Nodo recorrer = _raiz;
@@ -147,7 +147,7 @@ public class ABB {
             recorrer = nextNodo(recorrer);
         }
 
-        GameManager.getSaveLoadManagaer().guardarABB(_nombre, datos);
+        GameManager.getSaveLoadManager().guardar(_nombre, datos);
     }
 
     private Nodo nextNodo(Nodo current) {
