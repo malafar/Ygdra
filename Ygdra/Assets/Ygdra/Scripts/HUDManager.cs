@@ -7,7 +7,9 @@ public class HUDManager : MonoBehaviour{
 
     public Text cntHojas;
     void Start(){
-        Player.ajustarContadoresHojas(GameManager.getSaveLoadManager().getCurrentHojas(), GameManager.getSaveLoadManager().getMaxHojas());
+        if (GameManager.getSaveLoadManager().getMaxHojas() > 0) {
+            Player.ajustarContadoresHojas(GameManager.getSaveLoadManager().getCurrentHojas(), GameManager.getSaveLoadManager().getMaxHojas());
+        }
         updateCntHojas();
 
         if (GameManager.GetHUDManager() == null) {

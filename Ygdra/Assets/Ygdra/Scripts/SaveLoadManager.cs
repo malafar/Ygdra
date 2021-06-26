@@ -22,6 +22,8 @@ public class SaveLoadManager : MonoBehaviour {
 
     void Start() {
         _dataABB = new Dictionary<string, List<Tuple<int, State>>>();
+        _currentHojas = 0;
+        _maxHojas = 0;
         cargar();    
     }
 
