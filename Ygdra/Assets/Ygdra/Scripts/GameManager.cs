@@ -18,8 +18,8 @@ public static class GameManager {
 
     public static void inicializarAds() {
         if (!_adsInicializados) {
-            _adsInicializados = !_adsInicializados;
             MobileAds.Initialize(initStatus => { });
+            _adsInicializados = true;
         }
     }
 

@@ -10,6 +10,7 @@ public class SaveLoadManager : MonoBehaviour {
     private Dictionary<string, List< Tuple<int, State> > > _dataABB;
     private int _currentHojas;
     private int _maxHojas;
+    private int _anunciosVistos;
 
     private string _saveFilePath;
     private BinaryFormatter _bf;
@@ -22,6 +23,8 @@ public class SaveLoadManager : MonoBehaviour {
 
     void Start() {
         _dataABB = new Dictionary<string, List<Tuple<int, State>>>();
+        _currentHojas = 0;
+        _maxHojas = 0;
         cargar();    
     }
 
@@ -38,6 +41,9 @@ public class SaveLoadManager : MonoBehaviour {
             // Datos de jugador
             cargarDatosPlayer();
 
+            // Datos anuncios
+            cargarDatosAnuncios();
+
             _saveFile.Close();
         }
     }
@@ -51,7 +57,11 @@ public class SaveLoadManager : MonoBehaviour {
         _maxHojas = _savedData.loadMaxHojas();
     }
 
-    public void guardar(string nombreABB = null, List< Tuple <int, State> > estadosABB = null) {
+    private void cargarDatosAnuncios() {
+        _anunciosVistos = _savedData.loadAnunciosVistos();
+    }
+
+    public void guardar(string nombreABB = null, List< Tuple <int, State> > estadosABB = null, int anunciosVistos = -1) {
         _bf = new BinaryFormatter();
         _saveFile = File.Create(_saveFilePath);
         _savedData = new SavedData();
@@ -62,6 +72,9 @@ public class SaveLoadManager : MonoBehaviour {
 
         // Datos de player
         guardarDatosPlayer();
+
+        // Datos de anuncios
+        guardarDatosAnuncios(anunciosVistos);
 
         _bf.Serialize(_saveFile, _savedData);
         _saveFile.Close();
@@ -81,6 +94,20 @@ public class SaveLoadManager : MonoBehaviour {
         _savedData.savePlayerData();
     }
 
+    private void guardarDatosAnuncios(int numVistos) {
+        if (numVistos > -1) {
+            // Se llama al guardar cuando se incrementa contador
+            _savedData.saveAnunciosVistos(numVistos);
+        } else {
+            // Se llama al guardar desde un lugar diferente
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream sF = File.Open(_saveFilePath, FileMode.Open);
+            SavedData sD = (SavedData)bf.Deserialize(sF);
+
+            _savedData.saveAnunciosVistos(sD.loadAnunciosVistos());
+        }
+    }
+
     public List<Tuple<int, State>> getAbbData(string nombreABB) {
         if (_dataABB.ContainsKey(nombreABB)) {
             return _dataABB[nombreABB];
@@ -95,5 +122,9 @@ public class SaveLoadManager : MonoBehaviour {
 
     public int getMaxHojas() {
         return _maxHojas;
+    }
+
+    public int getAnunciosVistos() {
+        return _anunciosVistos;
     }
 }

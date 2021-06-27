@@ -17,6 +17,9 @@ class SavedData {
     private int _currentHojas;
     private int _maxHojas;
 
+    // Datos anuncios
+    private int _anunciosVistos;
+
     public void saveABB(Dictionary<string, List<Tuple<int, State>>> datos) {
         _dataABB = datos;
     }
@@ -36,5 +39,13 @@ class SavedData {
 
     public int loadMaxHojas() {
         return _maxHojas;
+    }
+
+    public void saveAnunciosVistos(int numVistos) {
+        _anunciosVistos = numVistos;
+    }
+
+    public int loadAnunciosVistos() {
+        return _anunciosVistos;
     }
 }
