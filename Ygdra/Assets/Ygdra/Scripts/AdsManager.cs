@@ -17,9 +17,14 @@ public class AdsManager : MonoBehaviour {
     }
 
     private void Start() {
+        nuevoAnuncio();
+    }
+
+    private void nuevoAnuncio() {
         _reward = new RewardedAd(_rewardID);
 
         // Cargamos los eventos
+
         // Cuando falla en cargarse el anuncio
         _reward.OnAdFailedToLoad += HandleFalloCargaAnuncio;
 
@@ -56,7 +61,7 @@ public class AdsManager : MonoBehaviour {
         // TODO: pendiente de UI
 
         // Recargamos el anuncio para el próximo intento
-        cargarAnuncio();
+        nuevoAnuncio();
     }
 
     public void HandleAperturaAnuncio(object sender, EventArgs args) {
@@ -74,7 +79,7 @@ public class AdsManager : MonoBehaviour {
         // TODO: pendiente de sonido
 
         // Precargamos el siguiente anuncio
-        cargarAnuncio();
+        nuevoAnuncio();
     }
 
     public void HandleRecompensar(object sender, Reward args) {
@@ -85,12 +90,5 @@ public class AdsManager : MonoBehaviour {
         creada.
          */
         GameManager.updateCntHojas(true);
-
-        /* Código ejemplo
-        string type = args.Type;
-        double amount = args.Amount;
-        MonoBehaviour.print(
-            "HandleRewardedAdRewarded event received for "
-                        + amount.ToString() + " " + type);*/
     }
 }
